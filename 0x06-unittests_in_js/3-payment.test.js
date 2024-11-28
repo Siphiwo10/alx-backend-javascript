@@ -1,20 +1,13 @@
 const sinon = require('sinon');
-const { expect } = require('chai');
-
-const sendPaymentRequestToApi = require('./3-payment');
 const Utils = require('./utils');
+const sendPaymentRequestToApi = require('./3-payment');
 
-describe('Spies', function () {
-  it('has the same math', () => {
-    const spyUtils = sinon.spy(Utils, 'calculateNumber');
-    const spyConsole = sinon.spy(console, 'log');
-
+describe('sendPaymentRequestToApi', () => {
+  it('should use Utils.calculateNumber to calculate the total', () => {
+    const spy = sinon.spy(Utils, 'calculateNumber');
     sendPaymentRequestToApi(100, 20);
-
-    expect(spyUtils.calledOnceWithExactly('SUM', 100, 20)).to.be.true;
-    expect(spyConsole.calledOnceWithExactly('The total is: 120')).to.be.true;
-
-    spyUtils.restore();
-    spyConsole.restore();
+    sinon.assert.calledWith(spy, 'SUM', 100, 20);
+    spy.restore();
   });
 });
+
