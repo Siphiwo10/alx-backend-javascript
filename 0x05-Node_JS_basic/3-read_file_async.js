@@ -1,6 +1,6 @@
 const fs = require('fs').promises; // Use promises for asynchronous file access
 
-async function countStudents(filePath) {
+async function countStudents (filePath) {
   try {
     const data = await fs.readFile(filePath, 'utf8');
     const lines = data.split('\n');
@@ -13,7 +13,7 @@ async function countStudents(filePath) {
     const studentCounts = {
       total: studentData.length,
       CS: 0,
-      SWE: 0,
+      SWE: 0
     };
 
     studentData.forEach((student) => {

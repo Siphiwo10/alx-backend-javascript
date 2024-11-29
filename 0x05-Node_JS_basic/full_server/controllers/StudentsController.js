@@ -1,7 +1,7 @@
 const { readDatabase } = require('../utils');
 
 class StudentsController {
-  static async getAllStudents(req, res) {
+  static async getAllStudents (req, res) {
     try {
       const studentsByField = await readDatabase('./database.csv');
       res.status(200).send('This is the list of our students\n' +
@@ -14,7 +14,7 @@ class StudentsController {
     }
   }
 
-  static async getAllStudentsByMajor(req, res) {
+  static async getAllStudentsByMajor (req, res) {
     const { major } = req.params;
     if (major !== 'CS' && major !== 'SWE') {
       res.status(500).send('Major parameter must be CS or SWE');
@@ -31,4 +31,3 @@ class StudentsController {
 }
 
 module.exports = StudentsController;
-

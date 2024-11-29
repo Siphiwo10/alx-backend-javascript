@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function studentsCount(database) {
+function studentsCount (database) {
   let student = [];
   const StudentGroup = {};
   const studentObj = [];
